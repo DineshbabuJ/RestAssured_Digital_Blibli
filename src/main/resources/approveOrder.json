@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string"
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "errorCode": {
+      "type": "string"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "value": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "success"
+      ]
+    }
+  },
+  "required": [
+    "requestId",
+    "errorMessage",
+    "errorCode",
+    "success",
+    "value"
+  ]
+}

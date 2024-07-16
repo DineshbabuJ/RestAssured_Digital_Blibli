@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "value": {
+      "type": "object",
+      "properties": {
+        "requestParam": {
+          "type": "object"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "pulsaCartId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "expiryInSeconds": {
+          "type": "integer"
+        },
+        "retryIntervalInSeconds": {
+          "type": "integer"
+        },
+        "reachRequestLimit": {
+          "type": "boolean"
+        },
+        "paymentEngine": {
+          "type": "string"
+        },
+        "autoApprove": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "requestParam",
+        "orderId",
+        "pulsaCartId",
+        "status",
+        "expiryInSeconds",
+        "retryIntervalInSeconds",
+        "reachRequestLimit",
+        "paymentEngine",
+        "autoApprove"
+      ]
+    }
+  },
+  "required": [
+    "requestId",
+    "success",
+    "value"
+  ]
+}

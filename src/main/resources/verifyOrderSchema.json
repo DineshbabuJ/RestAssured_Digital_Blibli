@@ -1,0 +1,566 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "value": {
+      "type": "object",
+      "properties": {
+        "pulsaOrder": {
+          "type": "object",
+          "properties": {
+            "pulsaCartId": {
+              "type": "string"
+            },
+            "customer": {
+              "type": "object",
+              "properties": {
+                "customerId": {
+                  "type": "string"
+                },
+                "customerAddress": {
+                  "type": "object",
+                  "properties": {
+                    "addressId": {
+                      "type": "string"
+                    },
+                    "streetAddress1": {
+                      "type": "string"
+                    },
+                    "kecamatan": {
+                      "type": "string"
+                    },
+                    "kelurahan": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "fullOrLegalName": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "addressLabel": {
+                      "type": "string"
+                    },
+                    "primary": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "userType": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "object",
+                  "properties": {
+                    "priority": {
+                      "type": "object"
+                    },
+                    "code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "priority",
+                    "code"
+                  ]
+                },
+                "gender": {
+                  "type": "string"
+                },
+                "mobilePhoneNumber": {
+                  "type": "string"
+                },
+                "loginEmail": {
+                  "type": "string"
+                }
+              }
+            },
+            "msisdn": {
+              "type": "string"
+            },
+            "pulsaCartItem": {
+              "type": "object",
+              "properties": {
+                "itemSku": {
+                  "type": "string"
+                },
+                "orderItemId": {
+                  "type": "string"
+                },
+                "itemDetail": {
+                  "type": "object",
+                  "properties": {
+                    "merchantCode": {
+                      "type": "string"
+                    },
+                    "merchantName": {
+                      "type": "string"
+                    },
+                    "itemName": {
+                      "type": "string"
+                    },
+                    "merchantSku": {
+                      "type": "string"
+                    },
+                    "productTypeCode": {
+                      "type": "object"
+                    },
+                    "productTypeName": {
+                      "type": "string"
+                    },
+                    "productCatentryId": {
+                      "type": "string"
+                    },
+                    "itemCatentryId": {
+                      "type": "string"
+                    },
+                    "productSku": {
+                      "type": "string"
+                    },
+                    "brandName": {
+                      "type": "string"
+                    },
+                    "settlementType": {
+                      "type": "string"
+                    },
+                    "typeOfMerchant": {
+                      "type": "string"
+                    },
+                    "internalName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "productType": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "object"
+                },
+                "price": {
+                  "type": "object"
+                },
+                "total": {
+                  "type": "object"
+                },
+                "adminCharge": {
+                  "type": "object"
+                },
+                "adminChargeDiscount": {
+                  "type": "object"
+                },
+                "adjustments": {
+                  "type": "array",
+                  "items": {}
+                },
+                "orderItemAdjustment": {
+                  "type": "object"
+                },
+                "networkOperator": {
+                  "type": "string"
+                },
+                "nominal": {
+                  "type": "object"
+                },
+                "providerName": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "operatorDescription": {
+                  "type": "string"
+                },
+                "brandProductCustomAttribute": {
+                  "type": "object"
+                },
+                "platformFee": {
+                  "type": "object"
+                },
+                "originalPlatformFee": {
+                  "type": "object"
+                },
+                "discountPercentage": {
+                  "type": "object"
+                }
+              }
+            },
+            "orderId": {
+              "type": "string"
+            },
+            "orderDate": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "transactionStatus": {
+              "type": "string"
+            },
+            "orderReceivedEmailSent": {
+              "type": "boolean"
+            },
+            "orderPaidEmailSent": {
+              "type": "boolean"
+            },
+            "paymentPublished": {
+              "type": "boolean"
+            },
+            "orderCancelledByAging": {
+              "type": "boolean"
+            },
+            "resendOrderRequested": {
+              "type": "boolean"
+            },
+            "resendOrderApproved": {
+              "type": "boolean"
+            },
+            "resendOrderRejected": {
+              "type": "boolean"
+            },
+            "payment": {
+              "type": "object",
+              "properties": {
+                "paymentId": {
+                  "type": "string"
+                },
+                "virtualAccountNumber": {
+                  "type": "string"
+                },
+                "paymentStatus": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "object"
+                },
+                "handlingFee": {
+                  "type": "object"
+                },
+                "billingAddress": {
+                  "type": "object",
+                  "properties": {
+                    "addressId": {
+                      "type": "string"
+                    },
+                    "streetAddress1": {
+                      "type": "string"
+                    },
+                    "kecamatan": {
+                      "type": "string"
+                    },
+                    "kelurahan": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "postalCode": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "fullOrLegalName": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "addressLabel": {
+                      "type": "string"
+                    },
+                    "primary": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "billingName": {
+                  "type": "string"
+                },
+                "extendedData": {
+                  "type": "object",
+                  "properties": {
+                    "x-payment-transaction-id": {
+                      "type": "string"
+                    },
+                    "VIRTUAL_ACCOUNT_NUMBER": {
+                      "type": "string"
+                    },
+                    "FDS_DEVICE_ID": {
+                      "type": "string"
+                    },
+                    "payment-category": {
+                      "type": "string"
+                    },
+                    "channelId": {
+                      "type": "string"
+                    },
+                    "FDS_CHECKOUT_STATUS": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "paymentInfo": {
+                  "type": "object",
+                  "properties": {
+                    "paymentMethod": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "paymentEngine": {
+                      "type": "string"
+                    },
+                    "expiredTimeInSecond": {
+                      "type": "object"
+                    },
+                    "holidayAffected": {
+                      "type": "boolean"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "sequence": {
+                      "type": "object"
+                    },
+                    "paymentBackend": {
+                      "type": "string"
+                    },
+                    "bankShortName": {
+                      "type": "string"
+                    },
+                    "swiftBankCode": {
+                      "type": "string"
+                    },
+                    "refundable": {
+                      "type": "boolean"
+                    },
+                    "listChannelId": {
+                      "type": "string"
+                    },
+                    "minAmount": {
+                      "type": "object"
+                    },
+                    "maxAmount": {
+                      "type": "object"
+                    },
+                    "repayable": {
+                      "type": "boolean"
+                    },
+                    "approvedProcessingDelayInMilisecond": {
+                      "type": "object"
+                    },
+                    "expiredTimeDisplayCustomerInSecond": {
+                      "type": "object"
+                    },
+                    "paymentGroup": {
+                      "type": "string"
+                    },
+                    "installment": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "paymentMethod",
+                    "description",
+                    "paymentEngine",
+                    "expiredTimeInSecond",
+                    "holidayAffected"
+                  ]
+                },
+                "transactionId": {
+                  "type": "string"
+                },
+                "paylaterEnabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "paymentId",
+                "virtualAccountNumber",
+                "paymentStatus",
+                "amount"
+              ]
+            },
+            "appliedPromoCodeAndValue": {
+              "type": "array",
+              "items": {}
+            },
+            "appliedCouponAndValue": {
+              "type": "array",
+              "items": {}
+            },
+            "totalOrder": {
+              "type": "object"
+            },
+            "totalOrderAdjustment": {
+              "type": "object"
+            },
+            "walletCashbackAmount": {
+              "type": "object"
+            },
+            "acquiredPointLoyalty": {
+              "type": "object"
+            },
+            "totalAdjustmentPoints": {
+              "type": "object"
+            },
+            "commonInquiryInfo": {
+              "type": "object",
+              "properties": {
+                "adminListCharge": {
+                  "type": "object"
+                },
+                "adminOfferCharge": {
+                  "type": "object"
+                },
+                "digitalBill": {
+                  "type": "object",
+                  "properties": {
+                    "autoPayFlag": {
+                      "type": "boolean"
+                    },
+                    "reminderFlag": {
+                      "type": "boolean"
+                    },
+                    "autoPayDay": {
+                      "type": "object"
+                    },
+                    "reminderDay": {
+                      "type": "object"
+                    },
+                    "productName": {
+                      "type": "string"
+                    },
+                    "operatorName": {
+                      "type": "string"
+                    },
+                    "existingBill": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "autoPayFlag",
+                    "reminderFlag",
+                    "autoPayDay",
+                    "reminderDay",
+                    "productName",
+                    "operatorName",
+                    "existingBill"
+                  ]
+                }
+              },
+              "required": [
+                "adminListCharge",
+                "adminOfferCharge",
+                "digitalBill"
+              ]
+            },
+            "additionalData": {
+              "type": "object"
+            },
+            "combinePayment": {
+              "type": "boolean"
+            },
+            "paymentStepUrl": {
+              "type": "string"
+            },
+            "reviewed": {
+              "type": "boolean"
+            },
+            "fraudOrder": {
+              "type": "boolean"
+            },
+            "overLimitFailure": {
+              "type": "boolean"
+            },
+            "enableSubscription": {
+              "type": "boolean"
+            },
+            "flashSalePPASku": {
+              "type": "boolean"
+            },
+            "productAdjustmentValue": {
+              "type": "object"
+            },
+            "redeemableTiketPoint": {
+              "type": "object"
+            },
+            "appliedTiketPoints": {
+              "type": "boolean"
+            },
+            "orderAdjustmentWithoutTiketPoints": {
+              "type": "object"
+            },
+            "subscription": {
+              "type": "boolean"
+            },
+            "includePlatformFeeInAdminCharge": {
+              "type": "boolean"
+            },
+            "maximumExpectedDateOfTransactionStatus": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "pulsaCartId",
+            "customer",
+            "msisdn",
+            "pulsaCartItem",
+            "orderId"
+          ]
+        }
+      },
+      "required": [
+        "pulsaOrder"
+      ]
+    }
+  },
+  "required": [
+    "requestId",
+    "success"
+  ]
+}
