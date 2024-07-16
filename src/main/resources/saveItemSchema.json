@@ -1,0 +1,248 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string"
+    },
+    "headers": {
+      "type": "null"
+    },
+    "errorMessage": {
+      "type": "null"
+    },
+    "errorCode": {
+      "type": "null"
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "value": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "null"
+        },
+        "storeId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "integer"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedDate": {
+          "type": "integer"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "version": {
+          "type": "null"
+        },
+        "deletedDate": {
+          "type": "null"
+        },
+        "deletedBy": {
+          "type": "null"
+        },
+        "markForDelete": {
+          "type": "boolean"
+        },
+        "brand": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "null"
+            },
+            "storeId": {
+              "type": "string"
+            },
+            "createdDate": {
+              "type": "integer"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "updatedDate": {
+              "type": "integer"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "version": {
+              "type": "null"
+            },
+            "deletedDate": {
+              "type": "null"
+            },
+            "deletedBy": {
+              "type": "null"
+            },
+            "markForDelete": {
+              "type": "boolean"
+            },
+            "brandId": {
+              "type": "integer"
+            },
+            "externalBrandId": {
+              "type": "string"
+            },
+            "brandCode": {
+              "type": "string"
+            },
+            "brandName": {
+              "type": "string"
+            },
+            "brandDetail": {
+              "type": "string"
+            },
+            "brandDescription": {
+              "type": "string"
+            },
+            "brandLogoUrl": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "storeId",
+            "createdDate",
+            "createdBy",
+            "updatedDate",
+            "updatedBy",
+            "version",
+            "deletedDate",
+            "deletedBy",
+            "markForDelete",
+            "brandId",
+            "externalBrandId",
+            "brandCode",
+            "brandName",
+            "brandDetail",
+            "brandDescription",
+            "brandLogoUrl"
+          ]
+        },
+        "productType": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "null"
+            },
+            "storeId": {
+              "type": "string"
+            },
+            "createdDate": {
+              "type": "integer"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "updatedDate": {
+              "type": "integer"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "version": {
+              "type": "null"
+            },
+            "deletedDate": {
+              "type": "null"
+            },
+            "deletedBy": {
+              "type": "null"
+            },
+            "markForDelete": {
+              "type": "boolean"
+            },
+            "productTypeCode": {
+              "type": "string"
+            },
+            "productTypeDescription": {
+              "type": "string"
+            },
+            "pricingType": {
+              "type": "string"
+            },
+            "isNeedMsisdn": {
+              "type": "boolean"
+            },
+            "isNeedEnquiry": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "storeId",
+            "createdDate",
+            "createdBy",
+            "updatedDate",
+            "updatedBy",
+            "version",
+            "deletedDate",
+            "deletedBy",
+            "markForDelete",
+            "productTypeCode",
+            "productTypeDescription",
+            "pricingType",
+            "isNeedMsisdn",
+            "isNeedEnquiry"
+          ]
+        },
+        "defaultProviderId": {
+          "type": "string"
+        },
+        "defaultProviderName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "autoSwitch": {
+          "type": "boolean"
+        },
+        "msisdn": {
+          "type": "string"
+        },
+        "disabledDate": {
+          "type": "null"
+        },
+        "temporaryShutdown": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "storeId",
+        "createdDate",
+        "createdBy",
+        "updatedDate",
+        "updatedBy",
+        "version",
+        "deletedDate",
+        "deletedBy",
+        "markForDelete",
+        "brand",
+        "productType",
+        "defaultProviderId",
+        "defaultProviderName",
+        "active",
+        "autoSwitch",
+        "msisdn",
+        "disabledDate",
+        "temporaryShutdown"
+      ]
+    }
+  },
+  "required": [
+    "requestId",
+    "headers",
+    "errorMessage",
+    "errorCode",
+    "success",
+    "value"
+  ]
+}

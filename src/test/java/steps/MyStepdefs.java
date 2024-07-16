@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -51,6 +52,7 @@ public class MyStepdefs {
         brandName=properties.getProperty("brandname");
         deviceid=properties.getProperty("deviceid");
         INTERNAL_NAME=properties.getProperty("internalname");
+        paymentMethod=properties.getProperty("paymentMethod");
         requestSpecification=null;
         requestSpecification = RestAssured.given()
                 .baseUri(url)
@@ -61,6 +63,7 @@ public class MyStepdefs {
     }
 
     @When("user hits api with get method with endpoint of {string} with params of {int} and {string} and {string},{string},{string}")
+    @Step("get items")
     public void userHitsApiWithGetMethodWithEndpointOfWithParamsOfAndAnd(String endpoint, int storeId, String reqid, String channelId, String clientId, String username) {
         System.out.println("----------GET items in digital catalog and get brand id-----------");
         response = requestSpecification
@@ -74,6 +77,7 @@ public class MyStepdefs {
     }
 
     @And("Filter response with product type {string} BrandName {string} andget BrandId")
+    @Step("filter and get brand id")
     public void filterResponseWithProductTypeBrandNameAndgetBrandId(String productType, String brandname) {
 
         productTypeCode=productType;
@@ -102,6 +106,7 @@ public class MyStepdefs {
     }
 
     @When("user hits api with get method with endpoint of {string} with params of {int} and {string} and {string},{string},{string},brandid,ProductType")
+    @Step("GET default providerId and providerName")
     public void userHitsApiWithGetMethodWithEndpointOfWithParamsOfAndAndBrandidProductType(String endpoint, int storeId, String reqid, String channelId, String clientId, String username) {
         System.out.println("----------GET default providerId and providerName-----------");
         System.out.println("brandId : "+brandID);
@@ -115,9 +120,12 @@ public class MyStepdefs {
                 .queryParam("brandId",brandID)
                 .queryParam("productTypeCode",productTypeCode)
                 .when()
-                .get(endpoint);
+                .get(endpoint)
+                .then()
+                .body(matchesJsonSchemaInClasspath("getProviderSchema.json")).extract().response();
     }
     @And("Get default providerid and provider name")
+    @Step("GET default providerId and providerName")
     public void getDefaultProvideridAndProviderName() {
         JSONObject jsonResponse = new JSONObject(response.getBody().asString());
         JSONObject value = jsonResponse.getJSONObject("value");
@@ -130,8 +138,9 @@ public class MyStepdefs {
     }
 
     @When("user hits api with post method with endpoint of {string} with params of {int} and {string} and {string},{string},{string}")
+    @Step("Save item mapping")
     public void userHitsApiWithPostMethodWithEndpointOfWithParamsOfAndAnd(String endpoint, int storeId, String reqId, String channelId, String clientId, String username) {
-        System.out.println("-----------------AVE ITEM MAPPING---------------------");
+        System.out.println("-----------------SAVE ITEM MAPPING---------------------");
         JSONObject requestBody = new JSONObject();
         requestBody.put("active", true);
         requestBody.put("autoSwitch", "false");
@@ -149,8 +158,9 @@ public class MyStepdefs {
                 .queryParam("username",username)
                 .body(requestBody.toString())
                 .when()
-                .post(endpoint);
-//                .then().log().all().extract().response();
+                .post(endpoint).then()
+                .log().all()
+                .body(matchesJsonSchemaInClasspath("saveItemSchema.json")).extract().response();
         Assert.assertEquals(response.statusCode(), 200, "Expected status code 200 OK");
         String jsonResponse = response.body().asString();
         System.out.println("-------save Item Mapping------- \n"+jsonResponse);
@@ -162,6 +172,7 @@ public class MyStepdefs {
     }
 
     @When("user hits api with delete method with endpoint of {string} with params of {int} and {string} and {string},{string},{string}, cartId {string}")
+    @Step("delete existing cart")
     public void userHitsApiWithDeleteMethodWithEndpointOfWithParamsOfAndAndCartId(String endpoint, int storeId, String reqId, String channelId, String clientId, String username, String cart) {
         System.out.println("----------DELETE EXISTING CART ----------------");
         response = requestSpecification
@@ -179,6 +190,7 @@ public class MyStepdefs {
     }
 
     @When("user hits api with get method with endpoint of {string} with params of {int} and {string} and {string},{string},{string},ProductType,brandname")
+    @Step("Get sku code")
     public void userHitsApiWithGetMethodWithEndpointOfWithParamsOfAndAndProductTypeBrandname(String endpoint, int storeId, String reqId, String channelId, String clientId, String username) {
         System.out.println("----------GET SKU CODE-------------------");
         response = requestSpecification
@@ -221,6 +233,7 @@ public class MyStepdefs {
     }
 
     @When("user hits api with post method with endpoint of {string} with params of {int} and {string} and {string},{string},{string}, cartid, customerid ,cartType for checkout")
+    @Step("Do checkout")
     public void userHitsApiWithPostMethodWithEndpointOfWithParamsOfAndAndCartidCustomeridCartType(String endpoint, int storeId, String reqId, String channelId, String clientId, String username) {
         System.out.println("----------DO checkout--------------------");
         response = requestSpecification
@@ -238,6 +251,7 @@ public class MyStepdefs {
     }
 
     @When("user hits api with post method with endpoint of {string} with params of {int} and {string} and {string},{string},{string}, cartid, {string} msisdn,productType for setting cart")
+    @Step("set cart")
     public void userHitsApiWithPostMethodWithEndpointOfWithParamsOfAndAndCartidMsisdnProductTypeForCheckout(String endpoint, int storeId, String reqId, String channelId, String clientId, String username,String msisdn) {
         System.out.println("----------SET PULSA CART-----------");
         HashMap<String,Object> reqBody= new HashMap<>();
@@ -262,6 +276,7 @@ public class MyStepdefs {
 
 
     @When("hit api with post method in endpoint {string} and with params of {int} and {string} and {string},{string},{string} add product to cart")
+    @Step("Add product to cart")
     public void hitApiWithPostMethodInEndpointAndWithParamsOfAndAndAddProductToCart(String endpoint, int storeId, String reqId, String channelId, String clientId, String username) {
         System.out.println("----------ADD PRODUCT TO CART----------------------");
         HashMap<String,Object> reqBody= new HashMap<>();
@@ -284,6 +299,7 @@ public class MyStepdefs {
     }
 
     @When("hit api with post method in endpoint {string} and with params of {int} and {string} and {string},{string},{string} , payment method")
+    @Step("Change payment flow")
     public void hitApiWithPostMethodInEndpointAndWithParamsOfAndAndPaymentMethod(String endpoint, int storeId, String reqId, String channelId, String clientId, String username) {
         System.out.println("----------CHANGE PAYMENT FLOW------------------------");
         response = requestSpecification
@@ -301,6 +317,7 @@ public class MyStepdefs {
     }
 
     @When("hit api with post method in endpoint {string} and with params of {int} and {string} and {string},{string},{string} add pay order by passing req body with cartId")
+    @Step("Pay order")
     public void hitApiWithPostMethodInEndpointAndWithParamsOfAndAndAddPayOrderByPassingReqBodyWithCartId(String endpoint, int storeId, String reqId, String channelId, String clientId, String username) throws JsonProcessingException {
         System.out.println("----------PAY ORDER -----------------------");
         HashMap<String,Object> reqBody= new HashMap<>();
