@@ -21,7 +21,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
-
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class MyStepdefs {
@@ -47,15 +46,18 @@ public class MyStepdefs {
     }
 
     @Given("User has access to the api {string}")
-    public void userHasAccessToTheApi(String url) throws IOException {
+    public void userHasAccessToTheApi(String api) throws IOException {
         properties.load(reader);
+        String baseurl;
+        if("catalog".equals(api)) baseurl=properties.getProperty("catologUrl");
+        else baseurl=properties.getProperty("pulsaUrl");
         brandName=properties.getProperty("brandname");
         deviceid=properties.getProperty("deviceid");
         INTERNAL_NAME=properties.getProperty("internalname");
         paymentMethod=properties.getProperty("paymentMethod");
         requestSpecification=null;
         requestSpecification = RestAssured.given()
-                .baseUri(url)
+                .baseUri(baseurl)
                 .contentType(ContentType.JSON)
                 .header("accept","application/json")
                 .header("Content-Type","application/json");
@@ -101,7 +103,6 @@ public class MyStepdefs {
 
     @Then("user should get response code {int}")
     public void userShouldGetResponseCode(int responseCode) {
-//        response.then().log().all();
         Assert.assertEquals(responseCode,response.statusCode());
     }
 
@@ -131,10 +132,14 @@ public class MyStepdefs {
         JSONObject value = jsonResponse.getJSONObject("value");
         defaultProviderId = value.getString("defaultProviderId");
         defaultProviderName = value.getString("defaultProviderName");
+        String productType = value.getJSONObject("productType").getString("productTypeCode");
+        String brand = value.getJSONObject("brand").getString("brandName");
         System.out.println("Default Provider Id :"+defaultProviderId);
         System.out.println("Default Provider Name :"+defaultProviderName);
 
         Assert.assertTrue(response.getBody().asString().contains("\"success\":true"), "Response should indicate success");
+        Assert.assertEquals(productType,productTypeCode, "Product Type Code mismatch");
+        Assert.assertEquals( brand,brandName, "Brand Name mismatch");
     }
 
     @When("user hits api with post method with endpoint of {string} with params of {int} and {string} and {string},{string},{string}")
